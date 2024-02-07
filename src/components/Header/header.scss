@@ -1,0 +1,84 @@
+.header {
+  min-height: 94px;
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--gray);
+  }
+  &__left {
+  }
+  &__left-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+    border-right: 1px solid var(--gray);
+    h2 {
+      font-weight: 500;
+      font-size: 18px;
+      text-align: center;
+      color: var(--black);
+    }
+    a {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 100%;
+      text-align: center;
+      color: var(--orange);
+    }
+  }
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+  }
+  &__center-city {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  &__center-city-title {
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: var(--gray);
+  }
+  &__center-city-name {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: var(--black);
+  }
+  &__center-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  &__center-link {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: var(--black);
+    transition: all 0.2s;
+    cursor: pointer;
+    &:hover{
+        color: var(--orange);
+    }
+  }
+  &__center-cart{
+    margin-left: 30px;
+  }
+  &__center-cart-button{
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover{
+        transform: translateY(-5px);
+    }
+  }
+}
