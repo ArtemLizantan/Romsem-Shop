@@ -1,12 +1,12 @@
 import { getProductsPizza } from "./products.actions";
 import { createSlice } from "@reduxjs/toolkit";
-
+import { DocumentData } from "firebase/firestore";
 export const productsSlice = createSlice({
   name: "products",
   initialState: {
     isLoading: false,
-    error: null,
-    product: {},
+    error: {},
+    product: [] as DocumentData,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -20,7 +20,7 @@ export const productsSlice = createSlice({
       })
       .addCase(getProductsPizza.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload.error;
+        state.error = action.error;
         state.product = {};
       });
   },

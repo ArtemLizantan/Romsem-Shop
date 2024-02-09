@@ -1,10 +1,10 @@
-import { getProductsPizza } from './../store/products/products.actions';
+import * as userActions from './../store/products/products.actions';
 import { bindActionCreators } from "@reduxjs/toolkit";
 import { useMemo } from "react";
 import { useDispatch } from "react-redux";
 
 const rootActions = {
-  getProductsPizza,
+  ...userActions,
 };
 
 export const useActions = () => {

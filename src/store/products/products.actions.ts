@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import db from "../../firebase";
 import { collection, onSnapshot, DocumentData } from "firebase/firestore";
+// Импортируйте ваш интерфейс или тип данных, если есть
 // import { Product } from "../../interfaces/interfaces";
 
-const getProductsFirebase = (collectionPath: string) => {
+const getProductsFirebase = (products): Promise<DocumentData[]> => {
   return new Promise((resolve, reject) => {
-    const productsCollection = collection(db, collectionPath);
+    const productsCollection = collection(db, "product-pizza");
 
     onSnapshot(
       productsCollection,
@@ -14,7 +15,6 @@ const getProductsFirebase = (collectionPath: string) => {
           (doc) => doc.data() as DocumentData
         );
         resolve(productsData);
-        console.log(productsData);
       },
       reject
     );
@@ -23,12 +23,8 @@ const getProductsFirebase = (collectionPath: string) => {
 
 export const getProductsPizza = createAsyncThunk(
   "products",
-  async (_, thunkApi) => {
-    try {
-      const response = await getProductsFirebase("product-pizza");
-      return response;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
+  async (products, thunkApi) => {
+    const response = await getProductsFirebase(products);
+    return response;
   }
 );

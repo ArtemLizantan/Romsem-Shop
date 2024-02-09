@@ -4,19 +4,23 @@ import { useActions } from "../../../../hooks/useActions";
 import { useEffect } from "react";
 
 const Products = () => {
-  const { isLoading, error, product } = useSelector(
-    (state: RootState) => state.product
-  );
+  const { product } = useSelector((state: RootState) => state.product);
 
   const { getProductsPizza } = useActions();
 
   useEffect(() => {
-    console.log(getProductsPizza());
+    getProductsPizza();
   }, [getProductsPizza]);
+
+  console.log(product);
 
   return (
     <div className="products">
-      <div className="products__body">{product.name}</div>
+      <div className="products__body">
+        {product.map(({ name }) => (
+          <h1 key={name}>{name}</h1>
+        ))}
+      </div>
     </div>
   );
 };
