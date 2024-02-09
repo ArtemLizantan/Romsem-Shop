@@ -161,9 +161,19 @@ a {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1100px) {
+    min-height: 100vh;
+  }
+  margin-left: 350px;
+  @media(max-width: 1100px) {
+    margin-left: 0;
+  }
 }
 
 .layout {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
+  // @media(max-width: 1100px) {
+  //   display: block;
+  // }
 }
